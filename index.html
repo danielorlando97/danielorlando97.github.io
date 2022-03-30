@@ -10,7 +10,7 @@
     ></script>
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript">
-      $(function () {
+      function init() {
         const data = getData();
         const name = data.Name;
         const left = data.Left;
@@ -20,7 +20,7 @@
         //document.getElementById("lastName").innerHTML = name.last;
         console.log(left.Summary);
         document.getElementById("summary").innerHTML = left.Summary;
-      });
+      }
     </script>
 
     <!-- <script>
@@ -57,7 +57,7 @@
       rel="stylesheet"
     /> -->
   </head>
-  <body class="px-4 pb-4 h-screen w-screen">
+  <body class="px-4 pb-4 h-screen w-screen" onload="init()">
     <div class="bg-gray-600 mb-2 w-full h-8"></div>
     <div class="flex flex-row h-full w-full">
       <div class="h-full w-2/3 mr-1">
