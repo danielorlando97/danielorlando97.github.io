@@ -1,5 +1,6 @@
 const e = "&eacute";
 const a = "&aacute";
+const o = "&oacute";
 const n = "&ntilde";
 function getData() {
   return {
@@ -11,10 +12,16 @@ function getData() {
       Summary: `Junios-Intermedial FullStack Developer con grandes ganas y capacidades de aprender. 
      Con experiencia laboral en varios frameworks de JS y TS, patrones de dis${e}${n}o Clean, DDD, FP y 
      conocimentos (acad${e}micos y autodid${a}ctas) en C#, Python, Go, Haskell`,
-      "EDUCATION AND TRAINING": [
+      Training: [
         {
-          name: "Ciencias De La Computación",
-          where: "Matcom, Universidad De La Habana - La Habana",
+          when: `Sept 2017 - Present`,
+          name: `Ciencias De La Computaci${o}n`,
+          where: "Matcom, Universidad De La Habana",
+        },
+        {
+          when: `Mar 2022 - Present`,
+          name: `Curso Optativo HyperLedger Fabric`,
+          where: "Matcom, Universidad De La Habana",
         },
       ],
       Languages: [
