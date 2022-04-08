@@ -17,49 +17,113 @@
         const right = data.Right;
 
         document.getElementById("firstName").innerHTML = name.first;
-        //document.getElementById("lastName").innerHTML = name.last;
+        document.getElementById("lastName").innerHTML = name.last;
         console.log(left.Summary);
         document.getElementById("summary").innerHTML = left.Summary;
 
         document.getElementById("training").innerHTML = left.Training.map(
-          (t) => `<div>
-            <label class='bg-gray-400 bg-opacity-30 px-1 py-0.5 rounded-lg'>${t.when}</label> 
+          (t) => `<li>
+            <label class='bg-gray-400 bg-opacity-30 px-1 py-0.5 rounded-lg'>${t.when}</label>
             <label>${t.name},</label>
             <label class="font-semibold">${t.where}</label>
-          </div>`
+          </li>`
+        ).join("\n");
+
+        document.getElementById("language").innerHTML = left.Languages.map(
+          (t) => {
+            var result = "<div class='flex flex-col space-y-0.5'>";
+            result += `<label class='font-bold'>${t.name}:</label>`;
+            result += "<div class='flex space-x-1'>";
+            result += Array(5)
+              .fill(1)
+              .map((_, i) =>
+                i < t.level
+                  ? "<div class='w-11 h-2.5 bg-gray-400 rounded-sm'></div>"
+                  : "<div class='w-11 h-2.5 bg-gray-400 bg-opacity-30 rounded-sm'></div>"
+              )
+              .join("\n");
+            result += "</div>";
+            result += `<label class='italic'>${t.levelName}</label>`;
+            return result + "</div>";
+          }
+        ).join("\n");
+
+        document.getElementById("github").innerHTML = left.GitHub.map(
+          (x) =>
+            `<li><a class="underline underline-offset-8 decoration-sky-500" href="${x}">${x.replace(
+              "https://",
+              ""
+            )}</a></li>`
         ).join("\n");
       }
     </script>
   </head>
-  <body class="px-4 pb-4 h-screen w-screen" onload="init()">
-    <div class="bg-gray-600 mb-2 w-full h-8"></div>
+  <body
+    class="px-4 pb-4 h-screen w-screen text-xs font-light lg:text-lg"
+    onload="init()"
+  >
+    <div class="bg-gray-600 mb-2 w-full h-8 lg:h-12"></div>
 
     <div class="flex flex-row h-full w-full">
       <div class="h-full w-2/3 mr-1">
-        <div class="mb-4 pt-2 border-b-2 border-gray-900 w-full">
-          <h1 id="firstName" class="font-bold text-xl">firstName</h1>
-          <!-- <h1 id="lastName" class="text-xs font-light">lastName</h1> -->
+        <div
+          class="flex space-x-1.5 mb-4 pt-2 border-b-2 border-gray-900 w-full"
+        >
+          <h1 id="firstName" class="font-bold text-xl lg:text-3xl">
+            firstName
+          </h1>
+          <h1 id="lastName" class="invisible lg:visible text-3xl font-bold">
+            lastName
+          </h1>
         </div>
 
         <div class="w-full mb-2">
           <div class="flex flex-row items-center w-full mb-1">
-            <h2 class="font-bold text-lg mr-1">SUMMARY</h2>
-            <div class="w-full h-4 bg-gray-400 bg-opacity-30"></div>
+            <h2 class="font-bold text-lg lg:text-xl mr-1">SUMMARY</h2>
+            <div class="w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"></div>
           </div>
-          <p id="summary" class="text-xs font-light text-left">Hola</p>
+          <p id="summary"></p>
         </div>
 
-        <div class="w-full">
-          <div class="flex flex-row items-center w-full mb-1">
-            <h2 class="font-bold mr-1">EDUCATION AND TRAINING</h2>
-            <div class="w-6 h-4 bg-gray-400 bg-opacity-30"></div>
+        <div class="w-full mb-2">
+          <div class="flex flex-row items-center w-full mb-2">
+            <h2 class="shrink-0 text-lg lg:text-xl font-bold mr-1">
+              EDUCATION AND TRAINING
+            </h2>
+            <div
+              class="flex-1 h-4 lg:h-5 w-full bg-gray-400 bg-opacity-30"
+            ></div>
+          </div>
+          <ul
+            id="training"
+            class="flex flex-col space-y-2 list-disc list-inside"
+          ></ul>
+        </div>
+
+        <div class="w-full mb-2">
+          <div class="flex flex-row items-center w-full mb-2">
+            <h2 class="font-bold text-lg lg:text-xl mr-1">LANGUAGES</h2>
+            <div class="w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"></div>
           </div>
           <div
-            id="training"
-            class="flex flex-col text-xs font-light text-left space-y-1.5"
-          >
-            Hola
+            id="language"
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 xl:gap-1"
+          ></div>
+        </div>
+
+        <div class="w-full mb-2">
+          <div class="flex flex-row items-center w-full mb-2">
+            <h2 class="shrink-0 font-bold text-lg lg:text-xl mr-1">
+              GITHUB PROFILE
+            </h2>
+            <div
+              class="flex-1 w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"
+            ></div>
           </div>
+          <ul
+            id="github"
+            class="grid grid-cols-1 xl:grid-cols-3 gap-2 xl:gap-1 list-disc list-inside"
+          ></ul>
         </div>
       </div>
 
