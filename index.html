@@ -50,48 +50,50 @@
 
         document.getElementById("github").innerHTML = left.GitHub.map(
           (x) =>
-            `<li><a class="underline underline-offset-8 decoration-sky-500" href="${x}">${x.replace(
+            `<li><a class="lg:underline lg:underline-offset-8 decoration-sky-500" href="${x}">${x.replace(
               "https://",
               ""
             )}</a></li>`
         ).join("\n");
+
+        document.getElementById("about").innerHTML = left.AboutMe;
       }
     </script>
   </head>
   <body
-    class="px-4 pb-4 h-screen w-screen text-xs font-light lg:text-lg"
+    class="px-4 pb-4 h-screen w-screen text-3xl font-light lg:text-base"
     onload="init()"
   >
-    <div class="bg-gray-600 mb-2 w-full h-8 lg:h-12"></div>
+    <div class="bg-gray-600 mb-6 lg:mb-2 w-full h-16 lg:12"></div>
 
     <div class="flex flex-row h-full w-full">
-      <div class="h-full w-2/3 mr-1">
+      <div class="h-full w-2/3 mr-4 lg:mr-1">
         <div
-          class="flex space-x-1.5 mb-4 pt-2 border-b-2 border-gray-900 w-full"
+          class="flex space-x-1.5 mb-4 pt-2 border-b-4 lg:border-b-2 border-gray-900 w-full"
         >
-          <h1 id="firstName" class="font-bold text-xl lg:text-3xl">
+          <h1 id="firstName" class="shrink-0 font-bold text-5xl lg:text-3xl">
             firstName
           </h1>
-          <h1 id="lastName" class="invisible lg:visible text-3xl font-bold">
+          <h1 id="lastName" class="flex-1 lg:visible text-3xl font-bold">
             lastName
           </h1>
         </div>
 
-        <div class="w-full mb-2">
-          <div class="flex flex-row items-center w-full mb-1">
-            <h2 class="font-bold text-lg lg:text-xl mr-1">SUMMARY</h2>
-            <div class="w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"></div>
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="font-bold text-4xl lg:text-xl mr-3 lg:mr-2">SUMMARY</h2>
+            <div class="w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"></div>
           </div>
           <p id="summary"></p>
         </div>
 
-        <div class="w-full mb-2">
-          <div class="flex flex-row items-center w-full mb-2">
-            <h2 class="shrink-0 text-lg lg:text-xl font-bold mr-1">
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               EDUCATION AND TRAINING
             </h2>
             <div
-              class="flex-1 h-4 lg:h-5 w-full bg-gray-400 bg-opacity-30"
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
             ></div>
           </div>
           <ul
@@ -100,10 +102,12 @@
           ></ul>
         </div>
 
-        <div class="w-full mb-2">
-          <div class="flex flex-row items-center w-full mb-2">
-            <h2 class="font-bold text-lg lg:text-xl mr-1">LANGUAGES</h2>
-            <div class="w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"></div>
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
+              LANGUAGES
+            </h2>
+            <div class="w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"></div>
           </div>
           <div
             id="language"
@@ -111,19 +115,43 @@
           ></div>
         </div>
 
-        <div class="w-full mb-2">
-          <div class="flex flex-row items-center w-full mb-2">
-            <h2 class="shrink-0 font-bold text-lg lg:text-xl mr-1">
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               GITHUB PROFILE
             </h2>
             <div
-              class="flex-1 w-full h-4 lg:h-5 bg-gray-400 bg-opacity-30"
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
             ></div>
           </div>
           <ul
             id="github"
             class="grid grid-cols-1 xl:grid-cols-3 gap-2 xl:gap-1 list-disc list-inside"
           ></ul>
+        </div>
+
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
+              ABOUT ME
+            </h2>
+            <div
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
+            ></div>
+          </div>
+          <p id="about"></p>
+        </div>
+
+        <div class="w-full mb-6 lg:mb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
+              EXPERIENCE
+            </h2>
+            <div
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
+            ></div>
+          </div>
+          <ul id="experience" class="list-disc list-inside"></ul>
         </div>
       </div>
 
