@@ -42,50 +42,51 @@ function getData() {
         "https://github.com/danielorlando97",
         "https://github.com/matcom-school",
       ],
-      AboutMe: `Junios-Intermedial FullStack Developer con grandes ganas y
+      AboutMe: `^Junios-Intermedial FullStack Developer^ con grandes ganas y
       capacidades de aprender, tecnolog${i}as, patrones y lenguajes nuevos.
       Con conocimientos en varios lenguajes y framework (mayormente
-      relacionados con JS y TS). M${a}s inclinado por la rama BackEnd que
-      FrontEnd, e interesado por el mundo de las Aplicaciones Distribuidas,
-      Microservicios, Blockchain,.... Serio y responsable en el trabajo, y
+      relacionados con JS y TS). M${a}s inclinado por la rama ^BackEnd^ que
+      FrontEnd, e interesado por el mundo de las ^Aplicaciones Distribuidas^,
+      ^Microservicios^, ^Blockchain^,.... Serio y responsable en el trabajo, y
       aficionado al studio y aplicaci${o}n de los distintos patrones de dise${n}o
-      (Clean, DDD, FP, Factory, ...), en b${u}squeda de la mayor productividad,
+      (^Clean^, ^DDD^, ^FP^, ^Factory^, ...), en b${u}squeda de la mayor productividad,
       extensibilidad, expresividad y claridad del c${o}digo`,
       Experience: [
         {
           job: "Backend Developer",
-          when: "Sept 2021 - Current",
+          when: "Sept 2021 - Actualidad",
           enterprise: "Guajiritos SRL",
           where: "Ciudad De La Habana, La Habana",
           description: `En el a${n}o 2021 comienza mi experiencia laboral en la primera MyPyme
           de Cuba, Guajiritos SRL, mientras curso 4to a${n}o de Ciencia de la
           Computaci${o}n, en la facultad Matcom, de la Universidad de la Habana.
-          Al comenzar en la empresa me present${o} como FullStack Development
-          (en Nest]S y React]S) y se me categoriza como Junior Development. A
+          Al comenzar en la empresa me present${o} como ^FullStack Development^
+          (en ^NestJS^ y ^ReactJS^) y se me categoriza como ^Junior Development^. A
           lo largo de mi tapa inicial en la empresa contribuyo en varios
           proyectos de la empresa; tanto en nuevos desarrollos, como en
           soporte y refactorizaci${o}n de softwares en produci${o}n, demostrando
-          habilidades en NestS, Microservices, Sql, Docker y adquiriendo otras
-          nuevas como Express]S, Angular]S, ElasticSearch, MongoDb. Seis
+          habilidades en ^NestJS, Microservices, Sql, Docker^ y adquiriendo otras
+          nuevas como ^ExpressJS, AngularJS, ElasticSearch, MongoDb^. Seis
           meses despu${e}s, se me coloca al frente de uno de los proyecto
-          principal de la empresa como Backend Development (en Express]S y
-          Sequelize, tecnolog${i}as de las que solo conoc${i}a el lenguaje, JavaScript),
-          alcanzando un rango de Intermediate Development.`,
+          principal de la empresa como ^Backend Development^ (en ^ExpressJS^ y
+          ^Sequelize^, tecnolog${i}as de las que solo conoc${i}a el lenguaje, JavaScript),
+          alcanzando un rango de ^Intermediate Development^.`,
           gitHub: "private repo",
         },
       ],
     },
     Right: {
-      Contract: {
-        Address: "Luyano, Ciudad De La Habana La Habana",
-        Phone: "+5353029854",
-        links: [
-          {
-            Whatsapp: "wa.me/5353029854",
-            Email: "danielorlandoortizpacheco@gmail.com",
-          },
-        ],
-      },
+      Image: "",
+      Contact: [
+        { name: "Address", text: "Luyano, Ciudad De La Habana La Habana" },
+        { name: "Phone", text: "+5353029854" },
+        { name: "WhatsApp", text: "wa.me/5353029854", link: true },
+        {
+          name: "Email",
+          text: "danielorlandoortizpacheco@gmail.com",
+          link: true,
+        },
+      ],
       Skills: [
         {
           name: "General Develoment Skills:",

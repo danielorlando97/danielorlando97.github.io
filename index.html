@@ -10,6 +10,20 @@
     ></script>
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript">
+      function prettierText(text) {
+        return (
+          "<div>" +
+          text
+            .split("^")
+            .map((text, i) =>
+              i % 2 === 0
+                ? `<label>${text}</label>`
+                : `<label class="font-semibold">${text}</label>`
+            )
+            .join("") +
+          "</div>"
+        );
+      }
       function init() {
         const data = getData();
         const name = data.Name;
@@ -56,15 +70,59 @@
             )}</a></li>`
         ).join("\n");
 
-        document.getElementById("about").innerHTML = left.AboutMe;
+        document.getElementById("about").innerHTML = prettierText(left.AboutMe);
+        document.getElementById("experience").innerHTML = left.Experience.map(
+          (x) =>
+            `<div class="flex flex-col lg:flex-row lg:space-x-2">
+            <h3 class="font-semibold">${x.job} (${x.when})</h3>
+            <h4 class="font-semibold">${x.enterprise} - ${x.where}</h4>
+            </div>
+            <div class"flex flex-row">
+              <label>Link GitHub o GitLab:</label>
+            ${
+              x.gitHub === "private repo"
+                ? "<label class='font-semibold'>Repos Privados de la Empresa</label>"
+                : `<a class="lg:underline lg:underline-offset-8 decoration-sky-500" href="${
+                    x.gitHub
+                  }">${x.gitHub.replace("https://", "")}</a>`
+            }
+          </div>
+          ` + prettierText(x.description)
+        );
+
+        document.getElementById("contact").innerHTML = right.Contact.map(
+          (x) => `
+        <div>
+          <label class='font-semibold'>${x.name}:</label>
+          ${
+            x.link
+              ? `<a href="${x.text}">${x.text}</a>`
+              : `<label>${x.text}</label>`
+          }
+        </div>
+        `
+        ).join("");
+
+        document.getElementById("skill").innerHTML = right.Skills.map(
+          (x) => `<div class="flex flex-col">
+            <label class="font-semibold underline pb-4">${x.name}</label>
+            <ul class="list-disc list-inside">
+              ${x.skills
+                .map((skill) => `<li class='mb-1'>${skill}</li>`)
+                .join("")}
+            </ul>
+          </div>`
+        ).join("");
+
+        //xs:text-red-500 sm:text-blue-600 md:text-green-600 lg:text-red-400
       }
     </script>
   </head>
   <body
-    class="px-4 pb-4 h-screen w-screen text-3xl font-light lg:text-base"
+    class="relative px-4 pb-4 mb-4 h-screen w-screen text-3xl font-light lg:text-base"
     onload="init()"
   >
-    <div class="bg-gray-600 mb-6 lg:mb-2 w-full h-16 lg:12"></div>
+    <div class="bg-gray-600 mb-6 lg:mb-2 w-full h-16 lg:h-12"></div>
 
     <div class="flex flex-row h-full w-full">
       <div class="h-full w-2/3 mr-4 lg:mr-1">
@@ -74,12 +132,15 @@
           <h1 id="firstName" class="shrink-0 font-bold text-5xl lg:text-3xl">
             firstName
           </h1>
-          <h1 id="lastName" class="flex-1 lg:visible text-3xl font-bold">
+          <h1
+            id="lastName"
+            class="flex-1 invisible lg:visible text-3xl font-bold"
+          >
             lastName
           </h1>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="font-bold text-4xl lg:text-xl mr-3 lg:mr-2">SUMMARY</h2>
             <div class="w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"></div>
@@ -87,7 +148,7 @@
           <p id="summary"></p>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               EDUCATION AND TRAINING
@@ -102,7 +163,7 @@
           ></ul>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               LANGUAGES
@@ -115,7 +176,7 @@
           ></div>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               GITHUB PROFILE
@@ -130,7 +191,7 @@
           ></ul>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               ABOUT ME
@@ -139,10 +200,10 @@
               class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
             ></div>
           </div>
-          <p id="about"></p>
+          <div id="about"></div>
         </div>
 
-        <div class="w-full mb-6 lg:mb-2">
+        <div class="w-full pb-6 lg:pb-2">
           <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
             <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
               EXPERIENCE
@@ -151,11 +212,55 @@
               class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
             ></div>
           </div>
-          <ul id="experience" class="list-disc list-inside"></ul>
+          <div id="experience" class="flex flex-col space-y-1"></div>
+        </div>
+
+        <div class="w-full pb-6 lg:pb-2">
+          <div
+            class="flex flex-col lg:flex-row lg:items-center w-full mb-3 lg:mb-2"
+          >
+            <label class="shrink-0 font-bold text-4xl lg:text-xl mr-2 lg:mr-1"
+              >ACADEMICAL AND AUTODIDACT</label
+            >
+            <div class="flex flex-1 flex-row items-center">
+              <label class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2"
+                >EXPERIENCE</label
+              >
+              <div
+                class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
+              ></div>
+            </div>
+          </div>
+          <div id="school" class="flex flex-col space-y-1"></div>
         </div>
       </div>
 
-      <div class="bg-green-300 h-full w-1/3"></div>
+      <div class="relative h-full w-1/3 pr-2">
+        <div class="border-black border-2 h-72 mb-6 lg:mb-2"></div>
+        <div class="w-full pb-6 lg:pb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
+              CONTACT
+            </h2>
+            <div
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
+            ></div>
+          </div>
+          <div id="contact" class="flex flex-col space-y-1.5 break-words"></div>
+        </div>
+
+        <div class="w-full pb-6 lg:pb-2">
+          <div class="flex flex-row items-center w-full mb-3 lg:mb-2">
+            <h2 class="shrink-0 font-bold text-4xl lg:text-xl mr-3 lg:mr-2">
+              SKILLS
+            </h2>
+            <div
+              class="flex-1 w-full h-7 lg:h-4 bg-gray-400 bg-opacity-30"
+            ></div>
+          </div>
+          <div id="skill" class="flex flex-col space-y-2.5"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
