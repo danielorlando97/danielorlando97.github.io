@@ -1,6 +1,6 @@
 # My curriculum vitae
 
-    personal pages [here] ([Duck Duck Go](https://duckduckgo.com).)
+    personal pages [here](https://danielorlando97.github.io)
 
 ## Tools:
 - github pages 
