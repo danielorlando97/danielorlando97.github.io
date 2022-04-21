@@ -1,6 +1,4 @@
-# My curriculum vitae
-
-    personal pages [here](https://danielorlando97.github.io)
+# My curriculum vitae ([look page here](https://danielorlando97.github.io))
 
 ## Tools:
 - github pages 
