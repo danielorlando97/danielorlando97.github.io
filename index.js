@@ -45,10 +45,9 @@ function getData() {
       AboutMe: `^Junios-Intermedial FullStack Developer^ con grandes ganas y
       capacidades de aprender, tecnolog${i}as, patrones y lenguajes nuevos.
       Con conocimientos en varios lenguajes y framework (mayormente
-      relacionados con JS y TS). M${a}s inclinado por la rama ^BackEnd^ que
-      FrontEnd, e interesado por el mundo de las ^Aplicaciones Distribuidas^,
-      ^Microservicios^, ^Blockchain^,.... Serio y responsable en el trabajo, y
-      aficionado al studio y aplicaci${o}n de los distintos patrones de dise${n}o
+      relacionados con JS y TS). Interesado por el mundo de las ^Aplicaciones Distribuidas^,
+      ^Microservicios^, ^Blockchain^, ^IA, ML y AutoML^, .... Serio y responsable en el trabajo, y
+      aficionado al estudio y aplicaci${o}n de los distintos patrones de dise${n}o
       (^Clean^, ^DDD^, ^FP^, ^Factory^, ...), en b${u}squeda de la mayor productividad,
       extensibilidad, expresividad y claridad del c${o}digo`,
       Experience: [
@@ -89,9 +88,9 @@ function getData() {
       ],
       Skills: [
         {
-          name: "General Develoment Skills:",
+          name: "General Development Skills:",
           skills: [
-            "Programming Languages: IS, TS, C#, Python, Haskell",
+            "Programming Languages: IS, TS, C#, Python, Haskell, Go",
             "Functional Programming",
             "Domain Driver Design",
             "Object Oriented Programmins",
@@ -102,20 +101,24 @@ function getData() {
           ],
         },
         {
-          name: "BackEnd Develoment Skills:",
+          name: "Data Science Development Skills:",
+          skills: [],
+        },
+        {
+          name: "BackEnd Development Skills:",
           skills: [
-            "Databases: SQL Server, MongoDB, Postgresql",
+            "Databases: MySQL, MongoDB, Postgresql",
             "API Design and Development",
             "Data Structures and Algorithms",
             "Multithreaded Software Applications",
-            "JS Frameworks: Express]S, Nest]S",
+            "JS Frameworks: ExpressJS, NestJS",
           ],
         },
         {
-          name: "FrontEnd Develoment Skills:",
+          name: "FrontEnd Development Skills:",
           skills: [
             "CSS, HTML",
-            "JS Frameworks: React|S, AngularIS",
+            "JS Frameworks: ReactJS, AngularJS",
             "Responsive Web Design",
             "Software Components and Libraries",
           ],
